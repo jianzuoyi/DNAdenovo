@@ -1,4 +1,4 @@
-# Eucaryon Genome Assembly 
+# Eukarya Genome Assembly 
 ### 1.Construct contig
 * Falcon-Unzip 
 * smart-analysis: arrow 
@@ -8,3 +8,6 @@
 * runBNG: BioNano
 ### 3. Cluster to chromosome
 * LACHESIS: Hi-C
+
+# Prokarya Genome Assembly
+
