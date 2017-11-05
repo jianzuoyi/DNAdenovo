@@ -3,12 +3,12 @@
 ## Eucaryon Genome Assembly 
 ### Construct contig
 * Falcon-Unzip 
-#### smart-analysis: arrow 
+* smart-analysis: arrow 
 ### Scaffolding: Pacbio
-#### SSPACE-Long
+* SSPACE-Long
 ### Scaffolding: NGS
-#### SSPACE
+* SSPACE
 ### Scaffolding: BioNano
-#### runBNG
+* runBNG
 ### Scaffolding: Hi-C
-#### LACHESIS 
+* LACHESIS 
