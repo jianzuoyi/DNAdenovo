@@ -1,0 +1,8 @@
+mer length  = 17
+hash size   = 4294967296
+num hashes  = 1
+max reprobe = 1953
+heap size = 1
+buffer size 10000000 nb_records 1111111
+out kmer len = 5 bytes
+out val len  = 4 bytes

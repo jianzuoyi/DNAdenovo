@@ -1,0 +1,46 @@
+kmerfreq4.0
+
+Author: fanw@genomics.org.cn; liubinghang@genomics.org.cn; lizhenyu@genomics.org.cn
+
+
+for 4.0, you can use *.gz files in fq.list, the program can see whether it is *.gz
+or files not compressed. It can recognize fq file or fa file by file content.
+
+
+*******************************************************************
+**************************Simple mode******************************
+******************************************************************* 
+Like kmerfreq3.x, just caculate the kmer frequence no more than 255.
+For genome size estimation, this is enough.
+
+kmerfreq -k 17 -l fq.list >17mer.freq 2>17mer.log;
+
+If you want to output the low depth(<=255), add -o 1 
+
+*******************************************************************
+**************************Full mode********************************
+*******************************************************************
+Use Array to caculate the low depth (<=255) and Hash to caculate the high depth.
+For further use of the kmer depth information, use the full mode to caculate all the
+depth and output the depth in *.depth or *.depth.gz.
+
+kmerfreq -k 17 -m 1 -o 1 -l fq.list >17mer.freq 2>17mer.log; //to use full mode.
+
+-m =1 then use the full mode.
+
+-o =1 then output the high and low depth in two files. 
+   =2 then output the depth in one file.
+
+Then two more file will be written.
+1. kmer.high.depth:
+ kmerseq	depth
+ ATATAT		376
+
+2. kmer.low.depth.gz
+To read this file, you can use the ReadKmer functions support in kmer.cpp.
+
+******************************************************************
+To use it, just remember:  If you need more, set more.
+
+Thank you.
+******************************************************************

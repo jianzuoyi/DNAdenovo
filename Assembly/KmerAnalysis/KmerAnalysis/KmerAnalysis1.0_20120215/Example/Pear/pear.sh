@@ -1,0 +1,9 @@
+export PATH="/ifs4/BC_PUB/biosoft/pipe/bc_ba/software/jellyfish/bin:/opt/blc/gcc-4.5.0/bin:$PATH"
+export LD_LIBRARY_PATH="/ifs4/BC_PUB/biosoft/pipe/bc_ba/software/jellyfish/lib:/opt/blc/gcc-4.5.0/lib64:$LD_LIBRARY_PATH"
+export LIBRARY_PATH="/ifs2/BC_GAG/Group/Develop/Zhandl/bin/jellyfish/lib:/opt/blc/gcc-4.5.0/lib:$LD_LIBRARY_PATH"
+gunzip -c /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/filter_data/PAIajnDAGDBBAPEI-8/101015_I124_FC80923ABXX_L1_PAIajnDAGDBBAPEI-8_1.fq.gz.clean.dup.clean.gz /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/filter_data/PAIajnDAGDBBAPEI-8/101015_I124_FC80923ABXX_L1_PAIajnDAGDBBAPEI-8_2.fq.gz.clean.dup.clean.gz /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/filter_data/PAIajnDAGDBAAPEI-6/101015_I124_FC80923ABXX_L2_PAIajnDAGDBAAPEI-6_1.fq.gz.clean.dup.clean.gz /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/filter_data/PAIajnDAGDBAAPEI-6/101015_I124_FC80923ABXX_L2_PAIajnDAGDBAAPEI-6_2.fq.gz.clean.dup.clean.gz /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/data/PRYzluDACDIBAPE/100529_I123_FC2027HABXX_L1_PRYzluDACDIBAPE_1.fq.clean.dup.clean.gz /ifs2/BC_GAG/Project/Pear/shidaihu/assembly/pear/00.data/data/PRYzluDACDIBAPE/100529_I123_FC2027HABXX_L1_PRYzluDACDIBAPE_2.fq.clean.dup.clean.gz | jellyfish count -m 17 -o pear --timing pear.time -s 4294967296 -t 21 -c 8 -C /dev/fd/0 1>pear.log 2>pear.error
+jellyfish merge -v -o pear.jf pear_* 1>>pear.log 2>>pear.error
+jellyfish dump -c -t -o pear.dump pear.jf 1>>pear.log 2>>pear.error
+jellyfish stats -o pear.stats pear.jf 2>>pear.error
+jellyfish histo -t 21 pear.jf | sed 's/ /	/g' >pear.histo
+perl /home/wangchongzhi/bin/kmeranalysis.pl -k 17 pear

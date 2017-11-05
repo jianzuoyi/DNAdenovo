@@ -1,0 +1,5 @@
+jellyfish_path	/ifswh1/BC_PUB/biosoft/pipeline/DNA/DNA_Denovo/KmerAnalysis/jellyfish
+gcc_path	/opt/blc/gcc-4.5.0
+PATH	/ifswh1/BC_PUB/biosoft/pipeline/DNA/DNA_Denovo/KmerAnalysis/jellyfish/bin:/opt/blc/gcc-4.5.0/bin:$PATH
+LD_LIBRARY_PATH	/ifswh1/BC_PUB/biosoft/pipeline/DNA/DNA_Denovo/KmerAnalysis/jellyfish/lib:/opt/blc/gcc-4.5.0/lib64:$LD_LIBRARY_PATH
+LIBRARY_PATH	/ifswh1/BC_PUB/biosoft/pipeline/DNA/DNA_Denovo/KmerAnalysis/jellyfish/lib:/opt/blc/gcc-4.5.0/lib:$LD_LIBRARY_PATH

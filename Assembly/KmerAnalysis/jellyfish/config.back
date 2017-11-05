@@ -1,0 +1,5 @@
+jellyfish_path		/ifs4/BC_PUB/biosoft/pipe/bc_ba/software/jellyfish
+gcc_path			/opt/blc/gcc-4.5.0
+PATH				/ifs4/BC_PUB/biosoft/pipe/bc_ba/software/jellyfish/bin:/opt/blc/gcc-4.5.0/bin:$PATH
+LD_LIBRARY_PATH		/ifs4/BC_PUB/biosoft/pipe/bc_ba/software/jellyfish/lib:/opt/blc/gcc-4.5.0/lib64:$LD_LIBRARY_PATH
+LIBRARY_PATH		/ifs2/BC_GAG/Group/Develop/Zhandl/bin/jellyfish/lib:/opt/blc/gcc-4.5.0/lib:$LD_LIBRARY_PATH

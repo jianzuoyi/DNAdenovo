@@ -1,0 +1,12 @@
+Method:
+the kmers are created by moving a k-length frame along each read base by base.If all the possible kmers of the genome are covered, the following formula can be used to caculate the genome size: G=base_num/base_depth=kmer_num/kmer_depth. It is supposed that the kmer depth distribution follows a Poission distribution, so the kmer expected depth is the peek depth. Then we get kmer expected depth and kmer total number to estimate the genome size.
+
+Method in detail:
+1. use the -a and -d to delete the bad sequencing part of each read, to reduce the influence of false ratio on the kmer frequence curve.
+2. kmerfreq will first caculate the frequence of each kmer, use these data to plot the kmer depth ~ frequency curve and kmer depth ~ depth*frequence curve.
+3. It is supposed that the kmer depth distribution follows a Poission distribution, so the kmer expected depth is the peek depth. 
+4. When all the possible kmers of the genome are covered, the following formula can be used to caculate the genome size: G=base_num/base_depth=kmer_num/kmer_depth. 
+
+Attention:
+For kmer frequence analysis, The key problem is how to get precise expect kmer depth. 
+We get two curves: depth~frequency(kmer depth distribution curve) and depth*freqeuence ~ frequence(kmer depth product curve), It is advised to use the peek depth of kmer depth product curve ,minus 1,  as the kmer expected depth.

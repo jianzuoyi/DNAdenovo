@@ -1,0 +1,14 @@
+../../bin/kmer_scan -k 50 -m 1048576 -l 0.75 ./test.fa
+
+There are 2 chromosomes.
+Total length is 350.
+Count Kmer frequency done!
+There are 197 different Kmers.
+Print kmer table done!
+Get uinique and repeat sequence done!
+There are 1 unique sequences, 2 repeat sequences.
+The maximum length of unique sequence is 150 , maximum length of repeat sequence is 100.
+Total length of unique sequences is 150.
+Total length of repeat sequences is 200.
+Total used time: 0.
+All done!

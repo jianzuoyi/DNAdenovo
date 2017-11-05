@@ -1,0 +1,45 @@
+5.0
+Introduce multiple threads and use two buffer to improve the efficiency.
+Two additional parameters:
+        -L: maximum read length
+        -t: threads number
+Fix a bug on counting total read number and kmer number.
+Rewrite some code of loading .gz file
+===============================================
+4.0
+Add hash part to caculate depth higher than 255.
+Add simple mode and full mode to caculate kmer depth. -m
+Add gz file read mode.
+Add gz file write mode, can read the high depth and low depth together or respectively. -o
+===============================================
+3.3
+change the fq read method.
+change the explain of some parametors.
+change the peek check part.
+===============================================
+3.2
+add product value.
+===============================================
+3.1
+add delete from the head of each read -a
+-d: delete from tail of each read
+add -g to set the max base number.
+===============================================
+3.0
+add the _list for corrected files list, do not need to make dir data.
+modified the peek find part.
+add the read_len and delete.
+add kmer corrected part.
+===============================================
+kmerfreq2.2
+modify the output
+add the used_base.
+===============================================
+kmerfreq2.1
+used -d: the delete length of each read
+===============================================
+2.0
+used the kmer node number.
+_rand  for random genome analysis. 
+_fq    for fq data analysis
+_corr  for corrected data analysis

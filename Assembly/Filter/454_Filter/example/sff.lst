@@ -1,0 +1,4 @@
+Sample_A1 ./raw_data/region1/454Reads.1.sff
+Sample_A2 ./raw_data/region1/454Reads.2.sff
+Sample_A1 ./raw_data/region2/454Reads.1.sff
+Sample_A2 ./raw_data/region2/454Reads.2.sff

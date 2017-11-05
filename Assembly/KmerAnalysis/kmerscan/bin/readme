@@ -1,0 +1,49 @@
+Program: kmer_scan
+
+Version: 3.0
+
+Author: Li Zhenyu (lizhenyu@genomics.cn)
+	Fan Wei (fanw@genomics.cn)
+
+Released date: 2010-01-28
+
+Function: Read genome sequence in fasta format, count kmer frequency, output continuous unique kmer as contig and continueous repeat kmer  	     as repeat sequence.
+
+Usage: /path/kmer_scan [option] *.fa
+                -k <int>            Kmer length(<=60), default=Kmer(50) 
+                -m <int>            initial size of hash table, default=init_size(1024*1024)
+                -l <float>          load factor of hash table, default=load_factor(0.75)
+                -h                  output this information
+example:
+	/path/kmer_scan ./test.fa
+	/path/kmer_scan -k 55 -m 16700000 ./test.fa
+
+Input: Genome sequence in fasta format. Note that 'N' is not permitted in sequence.
+
+Output: 1) *.log: log file. It contains statistical information about genome sequence.
+	2) *.kmer: kmer frequency and depth.
+	3) *.unique: contig. In fasta format.
+	4) *.repeat: repeat sequence. In fasta format.
+Example of *.unique/*.repeat:
+>1	0	27	28	chromosome 1
+ATTCGGCATAGCAGAATGCGGCATATAA
+The four numbers in '>' line represent sequence number, sequence's start position, sequence's end position in "chromosome 1" which is the
+chomosome that the seq comes from, and sequence's length, respectively.
+
+Alogrithm: Hash function is used in this program. Here we use Jenkins' hash function to calculate hash code from kmer-number. This hash 
+code is than used to mod the size of hash table, which is a prime for better distribution, to get kmer's positon in hash table. The 
+solution to solve conflict is called "Linear Probing". If two kmers' positions are calculated to be the same, which is denoted as 'hc', the
+ first kmer will occupy this 'hc' position, and the 'hc+1' position will be checked to see whether this positon is empty. If yes, we put 
+the latter kmer in this position. If not, we keep increasing 'hc' until a empty position is found. When the element number of hash table in
+ creases to as large as hash_table_size*load_factor, we enlarge hash table to twice as it was. This is a time comsumed process. If you set
+initial size of hash table appropriately by option '-m', it will save time.
+
+Resource comsumption: 
+	1) memory required for hash table can be calculated as: hash_table_size*element_size(16 bytes). The hash_table_size can be 
+estimated as element_number/load_factor(default 0.75) and it can be set by option '-m'. It will use more memory than the calculated result 
+if you use default parameter "init_size=1024*1024" or the option '-m' you set is small than the calculated result.
+	2) time: It runs about 6.5 minutes for a genome of size about 119M using default parameter. It will need more time if the genome is
+ large because the process of enlarging hash table will occur more times.
+	To save memory and time, you'd better set option '-m' as the result calculated by element_number/load_factor(default 0.75). For 
+example, it needs about 4.3G memory and 6.5 minutes for a genome of size about 119M using default parameters. If you set option '-m' as 
+119M/load_factor, it needs only about 2.6G memory and 4.5 minutes for the same genome.

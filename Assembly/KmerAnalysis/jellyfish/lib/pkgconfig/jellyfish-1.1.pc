@@ -1,0 +1,10 @@
+prefix=/ifs2/BC_GAG/Group/Zhandl/bin/jellyfish
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Jellyfish
+Description: A multi-threaded hash based k-mer counter.
+Version: 1.1
+Libs: -L${libdir} -ljellyfish -lpthread
+Cflags: -I${includedir}/jellyfish-1.1
