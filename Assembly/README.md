@@ -2,7 +2,7 @@
 
 ## Eucaryon Genome Assembly 
 ### Construct contig
-#### Falcon-Unzip 
+* Falcon-Unzip 
 #### smart-analysis: arrow 
 ### Scaffolding: Pacbio
 #### SSPACE-Long
